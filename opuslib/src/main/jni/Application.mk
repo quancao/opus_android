@@ -1,3 +1,4 @@
 APP_ABI  := all
 #APP_ABI  := armeabi
 APP_CFLAGS := -std=gnu99
+NDK_TOOLCHAIN_VERSION=4.9

@@ -4,6 +4,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 version = "1.0.2"
+
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
@@ -21,8 +22,11 @@ android {
     }
 
     task ndkBuild(type: Exec) {
+        def ndkDir = plugins.getPlugin('com.android.library').sdkHandler
         if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-            commandLine 'ndk-build.cmd', '-C', file('src/main/jni').absolutePath
+            //commandLine 'ndk-build.cmd', '-C', file('src/main/jni').absolutePath
+            commandLine 'c:\\Users\\Client2\\AppData\\Local\\Android\\sdk\\ndk-bundle\\ndk-build.cmd', '-C', file('src/main/jni').absolutePath
+
         } else {
             commandLine 'ndk-build', '-C', file('src/main/jni').absolutePath
         }
